@@ -5,12 +5,10 @@ class UserInfo {
   }
 
   getUserInfo() {
-    const userInfo = {
+    return {
       name: this._name.textContent,
       work: this._work.textContent,
     };
-
-    return userInfo;
   }
 
   setUserInfo(name, work) {

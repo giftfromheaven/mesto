@@ -1,4 +1,4 @@
-import { initialCards } from '../components/initial-cards.js';
+import { initialCards } from '../utils/initial-cards.js';
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
@@ -35,6 +35,7 @@ const cardsContainer = document.querySelector('.elements');
 
 const validatorProfile = new FormValidator(config, formProfile);
 validatorProfile.enableValidation();
+
 const validatorPlace = new FormValidator(config, formPlace);
 validatorPlace.enableValidation();
 
@@ -48,7 +49,7 @@ function open(name, link) {
 
 function addNewCard({ place, link }) {
   const card = new Card(place, link, '#element-template', open).createCard();
-  cardsContainer.prepend(card);
+  cardList.addItem(card);
 }
 
 function saveProfileData({ name, work }) {
@@ -79,12 +80,14 @@ cardList.renderItems();
 openProfilePopupButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   popupFormProfile.open();
-  inputName.value = profileName.textContent;
-  inputJob.value = profileJob.textContent;
+  const profile = user.getUserInfo();
+  inputName.value = profile.name;
+  inputJob.value = profile.work;
 });
 
 // Открытие попапа для добавления карточки
 openCardPopupButton.addEventListener('click', function (evt) {
   evt.preventDefault();
   popupAddCardObj.open();
+  validatorPlace.toggleButtonState();
 });
