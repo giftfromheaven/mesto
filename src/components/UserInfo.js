@@ -4,7 +4,7 @@ class UserInfo {
     this._work = work;
   }
 
-  getUserInfo() { 
+  getUserInfo() {
     const userInfo = {
       name: this._name.textContent,
       work: this._work.textContent,
