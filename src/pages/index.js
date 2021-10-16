@@ -10,7 +10,6 @@ import FormValidator from '../components/FormValidator.js';
 import UserInfo from '../components/UserInfo.js';
 import Api from '../components/Api.js';
 
-//ELEMENT
 function handleCardClick(place, link) {
   popupTypeImage.open(place, link);
 }
@@ -64,7 +63,6 @@ const cardList = new Section({
   containerSelector: template.listElements,
 });
 
-//POPUP ADD ELEMENT
 const popupAddElement = new PopupWithForm(popups.addPlace, handleFormAddElement);
 popupAddElement.setEventListeners();
 
@@ -90,7 +88,6 @@ function handleFormAddElement(data) {
     });
 }
 
-//POPUP EDIT PROFILE
 const popupEditProfile = new PopupWithForm(popups.profile, handleFormProfile);
 popupEditProfile.setEventListeners();
 
@@ -119,7 +116,6 @@ function handleFormProfile(userData) {
     });
 }
 
-//POPUP EDIT AVATAR
 const popupEditAvatar = new PopupWithForm(popups.avatar, handleFormAvatar);
 popupEditAvatar.setEventListeners();
 
@@ -145,11 +141,9 @@ function handleFormAvatar(data) {
     });
 }
 
-//POPUP DELETE CONFIRMATION
 const popupDeleteConfirmation = new PopupWithSubmit(popups.delete);
 popupDeleteConfirmation.setEventListeners();
 
-//API
 const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-27/',
   headers: {
@@ -158,14 +152,11 @@ const api = new Api({
   },
 });
 
-//USER INFO
 const userProfile = new UserInfo(userIformation);
 
-//POPUP IMAGE
 const popupTypeImage = new PopupWithImage(popups.image);
 popupTypeImage.setEventListeners();
 
-//VALIDATIONS
 const validationEditAvatarForm = new FormValidator(arrayValidation, forms.avatar);
 const validationEditForm = new FormValidator(arrayValidation, forms.plofile);
 const validationAddElementForm = new FormValidator(arrayValidation, forms.place);
@@ -173,7 +164,6 @@ validationAddElementForm.enableValidation();
 validationEditForm.enableValidation();
 validationEditAvatarForm.enableValidation();
 
-//*Page render
 api
   .getAllneededData()
   .then((data) => {
@@ -185,7 +175,6 @@ api
     console.log(err);
   });
 
-//* EventListeners:
 buttons.avatar.addEventListener('click', handleAvatar);
 buttons.addPlace.addEventListener('click', handleButtonAddElement);
 buttons.editProfile.addEventListener('click', handleButtonEdit);
