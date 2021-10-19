@@ -1,11 +1,13 @@
 .root {
+  min-width: 320px;
+  background: #000;
+  color: #fff;
+  box-sizing: border-box;
   font-family: 'Inter', Arial, sans-serif;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  width: 100%;
-  max-width: 1280px;
-  min-width: 160px;
-  margin: 0 auto;
-  color: #000000;
-  background-color: #000000;
+  -webkit-font-smoothing: antialiased; /* сглаживание */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%; /* подгонка шрифтов */
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility; /* лигатуры и кёрнинг */
 }

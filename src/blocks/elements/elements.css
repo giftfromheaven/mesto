@@ -1,14 +1,5 @@
-.elements {
-    max-width: 880px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(282px, max-content));
-    row-gap: 20px;
-    column-gap: 17px;
-}
-
-@media screen and (max-width: 879px) {
-    .elements {
-        justify-content: center;
-    }
+@media screen and (max-width: 425px) {
+  .elements {
+    padding: 0 19px;
+  }
 }
