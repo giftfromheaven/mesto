@@ -94,8 +94,7 @@ popupEditProfile.setEventListeners();
 function handleButtonEdit() {
   popupEditProfile.open();
   const profile = userProfile.getUserInfo();
-  popupEditProfile._inputs[0].value = profile.name;
-  popupEditProfile._inputs[1].value = profile.about;
+  popupEditProfile.setAutoFill(profile);
   validationEditForm.toggleButtonState();
   validationEditForm.hideError();
 }
