@@ -60,7 +60,7 @@ const cardList = new Section({
   render: (item) => {
     cardList.addItem(createNewElement(item));
   },
-  containerSelector: template.listElements,
+  container: template.listElements,
 });
 
 const popupAddElement = new PopupWithForm(popups.addPlace, handleFormAddElement);
