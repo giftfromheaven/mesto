@@ -6,13 +6,13 @@ export default class PopupWithForm extends Popup {
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector('.popup__form');
     this._confirmButton = this._form.querySelector('.popup__save-button');
-    this._inputs =this._form.querySelectorAll('.popup__input');
+    this._inputs = this._form.querySelectorAll('.popup__input');
   }
 
   _getInputValues() {
     this._inputList = Array.from(this._inputs);
     this._formValues = {};
-    this._inputList.forEach(input => this._formValues[input.name] = input.value);
+    this._inputList.forEach((input) => (this._formValues[input.name] = input.value));
     return this._formValues;
   }
 
@@ -29,12 +29,11 @@ export default class PopupWithForm extends Popup {
     this._form.reset();
   }
 
-  setButtonText(isDeleting) {
-    if (isDeleting) {
-      this._confirmButton.textContent = 'Сохранение...'
+  setButtonText(isLoading) {
+    if (isLoading) {
+      this._confirmButton.textContent = 'Сохранение...';
     } else {
-      this._confirmButton.textContent = 'Сохранить'
+      this._confirmButton.textContent = 'Сохранить';
     }
   }
-
 }
