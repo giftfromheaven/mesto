@@ -16,6 +16,14 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   }
 
+  setAutoFill(data) {
+    this._inputs.forEach((item) => {
+      if (data[item.name]) {
+        item.value = data[item.name];
+      }
+    });
+  }
+
   setEventListeners() {
     this._form.addEventListener('submit', (event) => {
       event.preventDefault();
